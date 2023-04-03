@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<meta charset="UTF-8">
+<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport">
+<meta content="ie=edge" http-equiv="X-UA-Compatible">
+<head>
+    <title>Lesson 1 </title>
+    <style>
+        input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
+    </style>
+
+</head>
+
+<body>
+     Contact
+
+    <form action="#">
+<!--        <label for="name">Name</label>-->
+    <div>
+        <label for="name">Name <!--название над кнопкой id name для него внизу-->
+            <input type="text" id="name" placeholder="name" pattern="^[a-zA-Z]*" required>
+        </label>
+
+    </div>
+    <div>
+        <input type="email" placeholder="email" pattern="^[^ ]+@[^ ]+\.[a-z]{2,20}$" required>
+    </div>
+    <div>
+        <input type="number" placeholder="phone" pattern="[0-9]+" required>
+    </div>
+    <div>
+        <label>
+            14-18
+            <input type="radio" name="age" value="small">
+        </label>
+        <label>
+            18-30
+            <input type="radio" name="age" value="medium">
+        </label>
+        <label>
+            30-60
+            <input type="radio" name="age" value="large">
+        </label>
+    </div>
+         <input type="checkbox">
+    <div>
+
+    </div>
+    <div>
+        <select name="category" ><!--multiple можно выбрать больше одного-->
+            <option value="sport">Sport</option>
+            <option value="music">Music</option>
+            <option value="news">News</option>
+        </select>
+    </div>
+    <div>
+        <textarea placeholder="Description" required minlength="10" maxlength="100" style="resize: none;height: 100px"></textarea>
+    </div>
+
+        <button type="reset">Reset</button>
+        <button type="submit">Send</button> <!--второй варик-->
+
+
+    </form>
+
+    <script>
+
+        document.addEventListener('submit',(event)=>{
+            event.preventDefault()
+            event.target.reset()/*обнуляет анкету*/
+            alert("success") /*пишет что ты молодец*/
+            return false
+        })
+
+    </script>
+
+</body>
